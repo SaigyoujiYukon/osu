@@ -267,8 +267,8 @@ namespace osu.Game.Screens.Menu
             sampleBeat = audio.Samples.Get(@"Menu/osu-logo-heartbeat");
             sampleDownbeat = audio.Samples.Get(@"Menu/osu-logo-downbeat");
 
-            logo.Texture = textures.Get(@"Menu/logo");
-            ripple.Texture = textures.Get(@"Menu/logo");
+            logo.Texture = textures.Get(@"Menu/how");
+            ripple.Texture = textures.Get(@"Menu/how");
         }
 
         private int lastBeatIndex;

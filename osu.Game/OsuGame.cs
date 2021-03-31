@@ -164,7 +164,7 @@ namespace osu.Game
                 stream = File.Open(path, FileMode.Open, FileAccess.Read);
             else
             {
-                Logger.Log($"图标路径不存在: {path}", LoggingTarget.Runtime, LogLevel.Important);
+                Logger.Log($"你确定 {path} 还在你的设备上嘛?", LoggingTarget.Runtime, LogLevel.Important);
                 return;
             }
 

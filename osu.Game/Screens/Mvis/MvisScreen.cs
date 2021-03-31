@@ -135,7 +135,7 @@ namespace osu.Game.Screens.Mvis
         private readonly Sidebar sidebar = new Sidebar
         {
             Name = "Sidebar Container",
-            Padding = new MarginPadding { Right = HORIZONTAL_OVERFLOW_PADDING }
+            Padding = new MarginPadding { Left = HORIZONTAL_OVERFLOW_PADDING }
         };
 
         #endregion
@@ -357,11 +357,11 @@ namespace osu.Game.Screens.Mvis
                                                         new FillFlowContainer
                                                         {
                                                             Name = "Left Buttons FillFlow",
-                                                            Anchor = Anchor.CentreLeft,
-                                                            Origin = Anchor.CentreLeft,
+                                                            Anchor = Anchor.CentreRight,
+                                                            Origin = Anchor.CentreRight,
                                                             AutoSizeAxes = Axes.Both,
                                                             Spacing = new Vector2(5),
-                                                            Margin = new MarginPadding { Left = 5 },
+                                                            Margin = new MarginPadding { Right = 5 },
                                                             Children = new Drawable[]
                                                             {
                                                                 new BottomBarButton
@@ -387,22 +387,6 @@ namespace osu.Game.Screens.Mvis
                                                             Spacing = new Vector2(5),
                                                             Children = new Drawable[]
                                                             {
-                                                                prevButton = new NextPrevButton
-                                                                {
-                                                                    Size = new Vector2(50, 30),
-                                                                    Anchor = Anchor.Centre,
-                                                                    Origin = Anchor.Centre,
-                                                                    ButtonIcon = FontAwesome.Solid.StepBackward,
-                                                                    Action = prevTrack,
-                                                                    TooltipText = "上一首 / 重新开始",
-                                                                },
-                                                                songProgressButton = new SongProgressButton
-                                                                {
-                                                                    TooltipText = "暂停 / 播放",
-                                                                    Action = togglePause,
-                                                                    Anchor = Anchor.Centre,
-                                                                    Origin = Anchor.Centre
-                                                                },
                                                                 nextButton = new NextPrevButton
                                                                 {
                                                                     Size = new Vector2(50, 30),
@@ -412,23 +396,45 @@ namespace osu.Game.Screens.Mvis
                                                                     Action = nextTrack,
                                                                     TooltipText = "下一首",
                                                                 },
+                                                                songProgressButton = new SongProgressButton
+                                                                {
+                                                                    TooltipText = "暂停 / 播放",
+                                                                    Action = togglePause,
+                                                                    Anchor = Anchor.Centre,
+                                                                    Origin = Anchor.Centre
+                                                                },
+                                                                prevButton = new NextPrevButton
+                                                                {
+                                                                    Size = new Vector2(50, 30),
+                                                                    Anchor = Anchor.Centre,
+                                                                    Origin = Anchor.Centre,
+                                                                    ButtonIcon = FontAwesome.Solid.StepBackward,
+                                                                    Action = prevTrack,
+                                                                    TooltipText = "上一首 / 重新开始",
+                                                                },
                                                             }
                                                         },
                                                         new FillFlowContainer
                                                         {
                                                             Name = "Right Buttons FillFlow",
-                                                            Anchor = Anchor.CentreRight,
-                                                            Origin = Anchor.CentreRight,
+                                                            Anchor = Anchor.CentreLeft,
+                                                            Origin = Anchor.CentreLeft,
                                                             AutoSizeAxes = Axes.Both,
                                                             Spacing = new Vector2(5),
-                                                            Margin = new MarginPadding { Right = 5 },
+                                                            Margin = new MarginPadding { Left = 5 },
                                                             Children = new Drawable[]
                                                             {
-                                                                pluginButton = new BottomBarButton
+                                                                soloButton = new BottomBarButton
                                                                 {
-                                                                    ButtonIcon = FontAwesome.Solid.Plug,
-                                                                    TooltipText = "查看插件",
-                                                                    Action = () => updateSidebarState(pluginsPage)
+                                                                    ButtonIcon = FontAwesome.Solid.User,
+                                                                    Action = presentBeatmap,
+                                                                    TooltipText = "在单人游戏选歌界面中查看",
+                                                                },
+                                                                sidebarToggleButton = new BottomBarButton
+                                                                {
+                                                                    ButtonIcon = FontAwesome.Solid.Cog,
+                                                                    Action = () => updateSidebarState(settingsScroll),
+                                                                    TooltipText = "播放器设置",
                                                                 },
                                                                 collectionButton = new BottomBarButton
                                                                 {
@@ -459,18 +465,12 @@ namespace osu.Game.Screens.Mvis
                                                                     Action = () => track.Looping = loopToggleButton.ToggleableValue.Value,
                                                                     TooltipText = "单曲循环",
                                                                 },
-                                                                soloButton = new BottomBarButton
+                                                                pluginButton = new BottomBarButton
                                                                 {
-                                                                    ButtonIcon = FontAwesome.Solid.User,
-                                                                    Action = presentBeatmap,
-                                                                    TooltipText = "在单人游戏选歌界面中查看",
+                                                                    ButtonIcon = FontAwesome.Solid.Plug,
+                                                                    TooltipText = "查看插件",
+                                                                    Action = () => updateSidebarState(pluginsPage)
                                                                 },
-                                                                sidebarToggleButton = new BottomBarButton
-                                                                {
-                                                                    ButtonIcon = FontAwesome.Solid.Cog,
-                                                                    Action = () => updateSidebarState(settingsScroll),
-                                                                    TooltipText = "播放器设置",
-                                                                }
                                                             }
                                                         },
                                                     }

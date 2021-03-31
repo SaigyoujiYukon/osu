@@ -85,7 +85,7 @@ namespace osu.Game.Overlays.Settings.Sections.General
                     {
                         new OsuSpriteText
                         {
-                            Text = "账号",
+                            Text = "烹煮服务器",
                             Margin = new MarginPadding { Bottom = 5 },
                             Font = OsuFont.GetFont(weight: FontWeight.Bold),
                         },
@@ -114,12 +114,12 @@ namespace osu.Game.Overlays.Settings.Sections.General
                             Origin = Anchor.TopCentre,
                             TextAnchor = Anchor.TopCentre,
                             AutoSizeAxes = Axes.Both,
-                            Text = state.NewValue == APIState.Failing ? "连接失败，将尝试重新连接..." : "正在连接至服务器...",
+                            Text = state.NewValue == APIState.Failing ? "烹煮成功，正在更换煮锅..." : "正在烹煮服务器...",
                             Margin = new MarginPadding { Top = 10, Bottom = 10 },
                         },
                     };
 
-                    linkFlow.AddLink("取消连接", api.Logout, string.Empty);
+                    linkFlow.AddLink("取消烹煮", api.Logout, string.Empty);
                     break;
 
                 case APIState.Online:
@@ -144,7 +144,7 @@ namespace osu.Game.Overlays.Settings.Sections.General
                                         {
                                             Anchor = Anchor.Centre,
                                             Origin = Anchor.Centre,
-                                            Text = "欢迎回来",
+                                            Text = "烹煮失败，已为您自动倒立",
                                             Font = OsuFont.GetFont(size: 18, weight: FontWeight.Bold),
                                             Margin = new MarginPadding { Top = 5, Bottom = 5 },
                                         },
@@ -251,7 +251,7 @@ namespace osu.Game.Overlays.Settings.Sections.General
                     },
                     new SettingsCheckbox
                     {
-                        LabelText = "自动登录",
+                        LabelText = "自动烹煮",
                         Current = config.GetBindable<bool>(OsuSetting.SavePassword),
                     },
                     new Container
@@ -266,7 +266,7 @@ namespace osu.Game.Overlays.Settings.Sections.General
                                 AutoSizeAxes = Axes.Y,
                                 Child = new SettingsButton
                                 {
-                                    Text = "登录",
+                                    Text = "开始烹煮",
                                     Action = performLogin
                                 },
                             }
@@ -406,16 +406,16 @@ namespace osu.Game.Overlays.Settings.Sections.General
 
         private enum UserAction
         {
-            [Description(@"在线")]
+            [Description(@"请打扰我")]
             Online,
 
             [Description(@"请勿打扰")]
             DoNotDisturb,
 
-            [Description(@"隐身")]
+            [Description(@"/effect give @s invisibility ∞ 1 true")]
             AppearOffline,
 
-            [Description(@"登出")]
+            [Description(@"与世隔绝")]
             SignOut,
         }
     }

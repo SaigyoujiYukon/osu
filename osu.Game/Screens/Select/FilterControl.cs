@@ -68,11 +68,17 @@ namespace osu.Game.Screens.Select
         public override bool ReceivePositionalInputAt(Vector2 screenSpacePos) =>
             base.ReceivePositionalInputAt(screenSpacePos) || sortTabs.ReceivePositionalInputAt(screenSpacePos);
 
+        private Bindable<bool> dontDisplayConverts = new Bindable<bool>();
+        private Bindable<bool> displayConverts;
+
         [BackgroundDependencyLoader(permitNulls: true)]
         private void load(OsuColour colours, IBindable<RulesetInfo> parentRuleset, OsuConfigManager config)
         {
             sortMode = config.GetBindable<SortMode>(OsuSetting.SongSelectSortingMode);
             groupMode = config.GetBindable<GroupMode>(OsuSetting.SongSelectGroupingMode);
+            displayConverts = config.GetBindable<bool>(OsuSetting.ShowConvertedBeatmaps);
+            dontDisplayConverts.Value = !displayConverts.Value;
+            dontDisplayConverts.BindValueChanged(v => displayConverts.Value = !v.NewValue);
 
             Children = new Drawable[]
             {
@@ -124,8 +130,8 @@ namespace osu.Game.Screens.Select
                                         {
                                             new OsuTabControlCheckbox
                                             {
-                                                Text = "显示转谱",
-                                                Current = config.GetBindable<bool>(OsuSetting.ShowConvertedBeatmaps),
+                                                Text = "不要显示转谱",
+                                                Current = dontDisplayConverts,
                                                 Anchor = Anchor.BottomRight,
                                                 Origin = Anchor.BottomRight,
                                             },

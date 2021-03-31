@@ -32,7 +32,7 @@ namespace osu.Game.Overlays
     {
         public string IconTexture => "Icons/Hexacons/messaging";
         public string Title => "聊天";
-        public string Description => "和世界各地的人实时交流";
+        public string Description => "和世界各地的人非实时交流";
 
         private const float textbox_height = 60;
         private const float channel_selection_min_height = 0.3f;
@@ -119,7 +119,7 @@ namespace osu.Game.Overlays
                                 {
                                     RelativeSizeAxes = Axes.Both,
                                 },
-                                new OnlineViewContainer("请先登录再进行聊天!")
+                                new OnlineViewContainer("请先倒立再进行聊天!")
                                 {
                                     RelativeSizeAxes = Axes.Both,
                                     Children = new Drawable[]
@@ -151,7 +151,7 @@ namespace osu.Game.Overlays
                                                 {
                                                     RelativeSizeAxes = Axes.Both,
                                                     Height = 1,
-                                                    PlaceholderText = "在这输入你要发送的消息",
+                                                    PlaceholderText = "不要在这输入你要发送的消息",
                                                     ReleaseFocusOnCommit = false,
                                                     HoldFocus = true,
                                                 }
@@ -292,6 +292,7 @@ namespace osu.Game.Overlays
                 currentChannelContainer.Clear(false);
                 currentChannelContainer.Add(loaded);
             }
+
             // mark channel as read when channel switched
             if (e.NewValue.Messages.Any())
                 channelManager.MarkChannelAsRead(e.NewValue);

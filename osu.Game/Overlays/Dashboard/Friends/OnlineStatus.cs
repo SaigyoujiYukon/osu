@@ -9,9 +9,11 @@ namespace osu.Game.Overlays.Dashboard.Friends
     {
         [Description("所有")]
         All,
+
         [Description("在线")]
         Online,
-        [Description("离线")]
+
+        [Description("跑了")]
         Offline
     }
 }

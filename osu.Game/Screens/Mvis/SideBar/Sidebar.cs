@@ -65,8 +65,8 @@ namespace osu.Game.Screens.Mvis.SideBar
                 },
                 content = new BlockClickContainer
                 {
-                    Anchor = Anchor.BottomRight,
-                    Origin = Anchor.BottomRight,
+                    Anchor = Anchor.BottomLeft,
+                    Origin = Anchor.BottomLeft,
                     RelativeSizeAxes = Axes.Both,
                     Size = new Vector2(0.3f, 1f),
                     Masking = true,
@@ -248,7 +248,7 @@ namespace osu.Game.Screens.Mvis.SideBar
             else
                 isFirstHide = false;
 
-            content.MoveToX(100, duration + 100, Easing.OutQuint);
+            content.MoveToX(-100, duration + 100, Easing.OutQuint);
             this.FadeOut(duration + 100, Easing.OutQuint);
 
             contentContainer.FadeOut(WaveContainer.DISAPPEAR_DURATION, Easing.OutQuint);

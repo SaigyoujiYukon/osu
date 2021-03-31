@@ -42,8 +42,8 @@ namespace osu.Game.Screens.Mvis.Collections.Interface
                     Name = "收藏夹选择界面",
                     RelativeSizeAxes = Axes.Both,
                     Width = 0.3f,
-                    Anchor = Anchor.TopLeft,
-                    Origin = Anchor.TopLeft,
+                    Anchor = Anchor.TopRight,
+                    Origin = Anchor.TopRight,
                     Children = new Drawable[]
                     {
                         collectionScroll = new OsuScrollContainer
@@ -64,8 +64,8 @@ namespace osu.Game.Screens.Mvis.Collections.Interface
                     Name = "收藏夹信息界面",
                     RelativeSizeAxes = Axes.Both,
                     Width = 0.7f,
-                    Anchor = Anchor.TopRight,
-                    Origin = Anchor.TopRight,
+                    Anchor = Anchor.TopLeft,
+                    Origin = Anchor.TopLeft,
                 }
             };
         }

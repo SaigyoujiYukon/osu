@@ -41,7 +41,7 @@ namespace osu.Game.Beatmaps
                 }
                 catch (Exception e)
                 {
-                    Logger.Error(e, "Beatmap failed to load");
+                    Logger.Error(e, $"无法加载路径为{getPathForFile(BeatmapInfo.Path)}的谱面");
                     return null;
                 }
             }

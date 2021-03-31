@@ -25,7 +25,7 @@ namespace osu.Game.Users
 
     public class UserStatusOffline : UserStatus
     {
-        public override string Message => @"离线";
+        public override string Message => @"跑了";
         public override Color4 GetAppropriateColour(OsuColour colours) => Color4.Black;
     }
 

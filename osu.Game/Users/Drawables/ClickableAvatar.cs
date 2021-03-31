@@ -40,12 +40,17 @@ namespace osu.Game.Users.Drawables
             Add(clickableArea = new ClickableArea
             {
                 RelativeSizeAxes = Axes.Both,
+                Anchor = Anchor.Centre,
+                Origin = Anchor.Centre,
                 Action = openProfile
             });
 
             LoadComponentAsync(new DrawableAvatar(user), clickableArea.Add);
 
             clickableArea.Enabled.BindTo(OpenOnClick);
+
+            if (user?.Id > 1)
+                clickableArea.Rotation = 180;
         }
 
         private void openProfile()

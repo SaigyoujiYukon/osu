@@ -274,10 +274,10 @@ namespace osu.Game.Screens.Select
                 foreach (var (button, overlay) in CreateFooterButtons())
                     Footer.AddButton(button, overlay);
 
-                BeatmapOptions.AddButton(@"管理", @"收藏夹", FontAwesome.Solid.Book, colours.Green, () => manageCollectionsDialog?.Show());
-                BeatmapOptions.AddButton(@"删除", @"所有难度", FontAwesome.Solid.Trash, colours.Pink, () => delete(Beatmap.Value.BeatmapSetInfo));
-                BeatmapOptions.AddButton(@"从", @"未玩过的谱面中移除", FontAwesome.Regular.TimesCircle, colours.Purple, null);
                 BeatmapOptions.AddButton(@"清除", @"所有本地成绩", FontAwesome.Solid.Eraser, colours.Purple, () => clearScores(Beatmap.Value.BeatmapInfo));
+                BeatmapOptions.AddButton(@"管理", @"收藏夹", FontAwesome.Solid.Book, colours.Green, () => manageCollectionsDialog?.Show());
+                BeatmapOptions.AddButton(@"从", @"未玩过的谱面中移除", FontAwesome.Regular.TimesCircle, colours.Purple, null);
+                BeatmapOptions.AddButton(@"删除", @"所有难度", FontAwesome.Solid.Trash, colours.Pink, () => delete(Beatmap.Value.BeatmapSetInfo));
             }
 
             dialogOverlay = dialog;
@@ -321,9 +321,9 @@ namespace osu.Game.Screens.Select
         /// <returns>A set of <see cref="FooterButton"/> and an optional <see cref="OverlayContainer"/> which the button opens when pressed.</returns>
         protected virtual IEnumerable<(FooterButton, OverlayContainer)> CreateFooterButtons() => new (FooterButton, OverlayContainer)[]
         {
-            (new FooterButtonMods { Current = Mods }, ModSelect),
             (new FooterButtonRandom { Action = triggerRandom }, null),
-            (new FooterButtonOptions(), BeatmapOptions)
+            (new FooterButtonOptions(), BeatmapOptions),
+            (new FooterButtonMods { Current = Mods }, ModSelect)
         };
 
         protected virtual ModSelectOverlay CreateModSelectOverlay() => new LocalPlayerModSelectOverlay();

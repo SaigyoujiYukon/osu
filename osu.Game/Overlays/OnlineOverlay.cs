@@ -21,7 +21,7 @@ namespace osu.Game.Overlays
             : base(colourScheme)
         {
             var mainContent = requiresSignIn
-                ? new OnlineViewContainer($"请先登录再查看{Header.Title.Title}!")
+                ? new OnlineViewContainer($"请先倒立再查看{Header.Title.Title}!")
                 : new Container();
 
             mainContent.RelativeSizeAxes = Axes.Both;
