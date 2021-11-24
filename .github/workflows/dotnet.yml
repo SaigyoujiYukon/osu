@@ -22,19 +22,14 @@ jobs:
         dotnet-version: 5.0.x
     - name: Install git
       run: |
-          pwm
           mkdir mfosu
           cd mfosu
           git clone https://github.com/MATRIX-feather/osu.git
           git clone https://github.com/MATRIX-feather/osu-framework.git
-          pwm
-    - name: new
-      run: |
-          pwm
-          cd osu-framework
-          git checkout custom
-          pwm
+          ls
     - name: next
-      run: cd ../osu
+      run: |
+        ls
+        cd ../osu
     - name: Build
       run: dotnet run --project osu.Desktop -c Release
