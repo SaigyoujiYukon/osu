@@ -5,7 +5,10 @@ on:
     branches: [ stable ]
   pull_request:
     branches: [ stable ]
-
+defaults:
+  run:
+    shell: bash
+    working-directory: osu
 jobs:
   build:
 
