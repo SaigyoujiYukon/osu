@@ -29,6 +29,10 @@ jobs:
     - name: next
       run: |
         ls
+    - name: next2
+      run: |
+        cd mfosu
+        ls
     - name: Build
       run: |
         cd ../osu
