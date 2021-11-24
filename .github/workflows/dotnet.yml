@@ -11,6 +11,8 @@ defaults:
     shell: bash
 jobs:
   build:
+    env: 
+      XDG_RUNTIME_DIR: runtime
 
     runs-on: ubuntu-latest
 
