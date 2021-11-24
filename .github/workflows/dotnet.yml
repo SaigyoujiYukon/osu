@@ -26,9 +26,13 @@ jobs:
           git clone https://github.com/MATRIX-feather/osu.git
           git clone https://github.com/MATRIX-feather/osu-framework.git
           ls
+          cd osu-framework
+          git checkout custom
+          cd ../osu
     - name: next
       run: |
         ls
-        cd ../osu
     - name: Build
-      run: dotnet run --project osu.Desktop -c Release
+      run: |
+        cd ../osu
+        dotnet run --project osu.Desktop -c Release
