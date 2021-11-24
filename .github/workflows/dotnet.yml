@@ -1,6 +1,10 @@
 name: .NET
 
 on:
+  push:
+    branches: [ stable ]
+  pull_request:
+    branches: [ stable ]
   workflow_dispatch:
 defaults:
   run:
@@ -23,14 +27,12 @@ jobs:
           cd osu-framework
           git checkout custom
           cd ../osu
-    - name: next
-      run: |
-        ls
     - name: next2
       run: |
         cd mfosu
         ls
     - name: Build
       run: |
+        cd mfosu
         cd ../osu
         dotnet run --project osu.Desktop -c Release
