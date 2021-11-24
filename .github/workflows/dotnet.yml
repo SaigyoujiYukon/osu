@@ -21,10 +21,7 @@ jobs:
         dotnet-version: 5.0.x
     - name: git
       run: |
-          mkdir mfosu
-          cd mfosu
-          git clone https://github.com/MATRIX-feather/osu.git
-          git clone https://github.com/MATRIX-feather/osu-framework.git
+          mkdir mfosu&&cd mfosu&&git clone https://github.com/MATRIX-feather/osu.git&&git clone https://github.com/MATRIX-feather/osu-framework.git
           ls
           cd osu-framework
           git checkout custom
